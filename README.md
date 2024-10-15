@@ -6,10 +6,10 @@ Dependencies:
 
 Clone the repository at [gem5.org](https://www.gem5.org/getting_started/) and follow the instructions to install. When prompted about "pre-commit hooks" simply press enter, "y" and allow the package to compile on it's own (It will take a while).
 
-Build gem5 for your specific architecture (if building for X86):
+Build gem5 for your specific architecture (if building for RISC-V):
 
 ```
-python3 `which scons` build/X86/gem5.opt -j9
+scons build/RISCV/gem5.opt -j9 <NUMBER OF CPUS>
 ```
 
 ## Execution
@@ -17,7 +17,7 @@ python3 `which scons` build/X86/gem5.opt -j9
 gem5 is executed on the command line by running the binary you generated with your system architecture, then takes a config file as the input:
 
 ```
-./build/X86/gem5.opt configs/tutorial/simple.py
+./build/RISCV/gem5.opt configs/tutorial/simple.py
 ```
 
 ## Introduction
