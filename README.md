@@ -35,3 +35,5 @@ If inserting the home directory on the path, you will need to use sudo while mak
 ## TEEs and Secure Memory
 
 A Trusted Execution Environment (TEE) can provide hardware-verified security to ensure that programs run in an untampered environment, however, it is still possible for attackers to target and tamper with off-chip memory to affect the output of the program.
+
+Secure Memory Hardware Design allows the designer to ensure the integrity of off-chip data by storing metadata securely on-chip and verifying through integrity hash trees (merkle trees). This requires a small memory and compute overhead but provides additional security measures that, paired with a TEE, produces a secure execution space with verified data values, giving the user confidence that their values are tamper-free.
