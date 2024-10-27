@@ -3,6 +3,7 @@
 Dependencies:
 
 - scons
+- [riscv-gnu-toolchain](https://github.com/riscv-collab/riscv-gnu-toolchain)
 
 Clone the repository at [gem5.org](https://www.gem5.org/getting_started/) and follow the instructions to install. When prompted about "pre-commit hooks" simply press enter, "y" and allow the package to compile on it's own (It will take a while).
 
