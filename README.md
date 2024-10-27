@@ -30,7 +30,7 @@ export PATH="$HOME/repos/riscv/bin/:$PATH"
 sudo make linux
 ```
 
-If inserting the home directory on the path, you will need to use sudo while making the package. Additionally, don't forget to export the bin/ within your desired build path. If called correctly, you should be able to see all the many riscv64-unknown-elf-<variant>.
+If inserting the home directory on the path, you will need to use sudo while making the package. Additionally, don't forget to export the bin/ within your desired build path. If called correctly, you should be able to see all the many riscv64-unknown-elf- variants.
 
 ## TEEs and Secure Memory
 
