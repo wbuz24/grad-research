@@ -13,9 +13,24 @@ You can follow the gem5 [introductory tutorial](https://www.gem5.org/documentati
 
 Build gem5 for your specific architecture (X86, RISCV, ARM, NULL, MIPS, SPARC, POWER, and ALL)
 
-## Gem5 ISA support
+## Gem5 RISCV support
 
 Gem5 supports a number of different ISA's, when doing research using gem5 on one of these ISA's, you often need to add or modify instruction implementations. These can be found in the source code at (for example: RISC-V) gem5/src/arch/riscv/isa/decoder.isa.
+
+If you are compiling for RISC-V, you must additionally compile your benchmark for RISC-V. We recommend this RISC-V gcc [compiler](https://github.com/riscv-collab/riscv-gnu-toolchain)
+
+The trickiest part of installing this software is including the build path in the prefix flag of the configure command. For instance, after installing all necessary packages, I will create a build directory in the repo and call the configure command from within, including my desired build path (repos/riscv/):
+
+```
+cd riscv-gnu-toolchain
+mkdir build
+cd build
+export PATH="$HOME/riscv/bin/:$PATH"
+../configure --prefix=/$HOME/repos/riscv/
+sudo make linux
+```
+
+If inserting the home directory on the path, you will need to use sudo while making the package. Additionally, don't forget to export the bin/ within your desired build path. If called correctly, you should be able to see all the many riscv64-unknown-elf-<variant>.
 
 ## TEEs and Secure Memory
 
