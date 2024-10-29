@@ -1,0 +1,13 @@
+newgraph
+
+xaxis size 2
+  hash_labels fontsize 20
+  hash_label at 1 : hello world
+
+  hash_label at 2 : Sam's Homework
+
+yaxis size 2 min 0 max 100
+  grid_lines grid_gray .7
+
+legend top
+
