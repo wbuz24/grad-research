@@ -15,7 +15,9 @@ int main(int argc, char** argv)
   ifstream file;
   istringstream ss;
   vector <string> sv;
-  int i;
+  int i, buf;
+  double simt;
+  long long mem;
 
   if (argc != 2) { fprintf(stderr, "USAGE:\n./processGraph /path/To/stats.txt\n"); exit(1); }
 
@@ -37,8 +39,20 @@ int main(int argc, char** argv)
     while (ss >> s) sv.push_back(s); // process string stream into vector
 
     // print each line
-    for (i = 0; i < sv.size(); i++) { printf("%s ", sv[i].c_str()); }
-    printf("\n");
+    for (i = 0; i < sv.size(); i++) { 
+      if (sv[i] == "simSeconds") {
+        sscanf(sv[i+1].c_str(), "%lf", &simt); 
+        printf("Sim time: %.2lf (milliseconds)\n", simt * 1000); 
+      }
+      if (sv[i] == "hostSeconds") printf("Host time: %s (seconds)\n", sv[i+1].c_str()); 
+      if (sv[i] == "hostMemory") {
+        sscanf(sv[i+1].c_str(), "%lld", &mem);
+        printf("Host memory : %lld (kB)\n", mem / 1000); 
+      }
+
+      if (sv[i] == "system.cpu.numCycles") printf("Simulated CPU cycles: %s\n", sv[i+1].c_str()); 
+    }
+
   }
 
   return 0;
