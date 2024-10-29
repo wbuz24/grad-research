@@ -17,9 +17,8 @@ int main(int argc, char** argv)
   istringstream ss;
   ostringstream os;
   vector <string> sv;
-  int i, buf;
-  double simt;
-  long long mem;
+  int i;
+  double simt, mem, hostt;
 
   if (argc != 2 && argc != 3) { fprintf(stderr, "USAGE:\n./processGraph /path/To/stats.txt <Graph Title>\n"); exit(1); }
 
@@ -32,7 +31,7 @@ int main(int argc, char** argv)
   // open file
   file.open(fname);
   if (!file) { fprintf(stderr, "%s failed to open\n", fname.c_str()); exit(1); }
-  
+
   // Process each line
   while (getline(file, line)) {
     sv.clear(); // clear vector/streams and insert new line
@@ -45,12 +44,17 @@ int main(int argc, char** argv)
     for (i = 0; i < sv.size(); i++) { 
       if (sv[i] == "simSeconds") {
         sscanf(sv[i+1].c_str(), "%lf", &simt); 
-        printf("Sim time: %.2lf (milliseconds)\n", simt * 1000); 
+        simt = simt * 1000;
+        printf("Sim time: %.2lf (milliseconds)\n", simt); 
       }
-      if (sv[i] == "hostSeconds") printf("Host time: %s (seconds)\n", sv[i+1].c_str()); 
+      if (sv[i] == "hostSeconds") {
+        sscanf(sv[i+1].c_str(), "%lf", &hostt);
+        printf("Host time: %lf (seconds)\n", hostt); 
+      }
       if (sv[i] == "hostMemory") {
-        sscanf(sv[i+1].c_str(), "%lld", &mem);
-        printf("Host memory : %lld (kB)\n", mem / 1000); 
+        sscanf(sv[i+1].c_str(), "%lf", &mem);
+        mem = mem / 1000000;
+        printf("Host memory : %lf (MB)\n", mem); 
       }
 
       if (sv[i] == "system.cpu.numCycles") printf("Simulated CPU cycles: %s\n", sv[i+1].c_str()); 
@@ -75,13 +79,27 @@ int main(int argc, char** argv)
   ofile << "newgraph\n\n";
 
   // Create and define the xaxis parameters
-  ofile << "xaxis size 2\n  hash_labels fontsize 20\n";
-  ofile << "  hash_label at 1 : hello world\n\n";
-  ofile << "  hash_label at 2 : Sam's Homework\n\n"; // create labels instead of x axis
-  // define yaxis and create gray horizontal lines
-  ofile << "yaxis size 2 min 0 max 100\n  grid_lines grid_gray .7\n\n"; 
+  ofile << "xaxis size 2 min .8 max 3.3\n  hash 1 mhash 0 shash 0\n  no_auto_hash_labels\n";
+  ofile << "  hash_labels fontsize 12 font Times-Italix hjl rotate -60\n";
+  ofile << "  hash_label at 1 : Sim Time (milliseconds)\n\n";
+  ofile << "  hash_label at 2 : Host Time (seconds)\n\n";
+  ofile << "  hash_label at 3 : Host memory (MB)\n\n"; // create labels instead of x axis
 
-  ofile << "legend top\n\n";
+  // define yaxis and create gray horizontal lines
+  ofile << "yaxis size 2 min 0 max 1\n  grid_lines grid_gray .7\n\n"; 
+
+  // When using the gray lines you have to redraw the x axis
+  ofile << "newline pts 0.8 0 3.2 0\n\n";
+
+  // Yellow bars
+  ofile << "newcurve marktype xbar cfill 0 .9 .6\n\n";
+
+  ofile << "marksize .1 .08\n\n";
+
+  if (argc == 3) ofile << "label : " << title << "\n";
+  else ofile << "label : stats.txt\n";
+
+  ofile << "pts\n" << "  1 " << simt << " 2 " << hostt << " 3 " << mem;
 
   return 0;
 }

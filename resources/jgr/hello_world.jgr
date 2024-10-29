@@ -1,0 +1,26 @@
+newgraph
+
+xaxis size 2 min .8 max 3.3
+  hash 1 mhash 0 shash 0
+  no_auto_hash_labels
+  hash_labels fontsize 12 font Times-Italix hjl rotate -60
+  hash_label at 1 : Sim Time (milliseconds)
+
+  hash_label at 2 : Host Time (seconds)
+
+  hash_label at 3 : Host memory (MB)
+
+yaxis size 2 min 0 max 1
+  grid_lines grid_gray .7
+
+legend top
+
+newline pts 0.8 0 3.2 0
+
+newcurve marktype xbar cfill 1 1 0
+
+marksize .1 .08
+
+label : hello_world
+pts
+  1 0.357 2 0.03 3 0.63064
