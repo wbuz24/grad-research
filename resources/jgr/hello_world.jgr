@@ -13,11 +13,9 @@ xaxis size 2 min .8 max 3.3
 yaxis size 2 min 0 max 1
   grid_lines grid_gray .7
 
-legend top
-
 newline pts 0.8 0 3.2 0
 
-newcurve marktype xbar cfill 1 1 0
+newcurve marktype xbar cfill 1 1 .6
 
 marksize .1 .08
 
