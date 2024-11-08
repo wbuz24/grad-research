@@ -33,6 +33,20 @@ sudo make linux
 
 If inserting the home directory on the path, you will need to use sudo while making the package. Additionally, don't forget to export the bin/ within your desired build path. If called correctly, you should be able to see all the many riscv64-unknown-elf- variants.
 
+## Running a custom binary in Syscall Emulation mode
+
+The gem5 simulator calls the binary from the config file, previously this happened by passing the binary through the system class hierarchy. However, in recent versions gem5 has introduced a resource system that allows you to download binaries from their website. This addition makes passing custom binaries a little less trivial, in order to pass your binary, you can call the BinaryResource() function onto the board class structure:
+
+```
+board.set_se_binary_workload(BinaryResource(local_path="/home/wbuziak/repos/gem5/progs/binaries/arrflip"), arguments=["100000001"])
+```
+
+as opposed to using system:
+
+```
+system.workload = SEWorkload.init_compatible(binary)
+```
+
 ## TEEs and Secure Memory
 
 A Trusted Execution Environment (TEE) can provide hardware-verified security to ensure that programs run in an untampered environment, however, it is still possible for attackers to target and tamper with off-chip memory to affect the output of the program.
