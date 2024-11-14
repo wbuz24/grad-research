@@ -1,0 +1,25 @@
+set $mcx=(gem5::MCXEncryptionEngine*)gem5::SimObject::find("system.mee")
+
+set $l3rq=(gem5::MCXEncryptionEngine::MCXL3RequestPort)$mcx->l3RequestPort
+
+set $l3rs=(gem5::MCXEncryptionEngine::MCXL3ResponsePort)$mcx->l3ResponsePort
+
+set $mrq=(gem5::MCXEncryptionEngine::MCXMetaRequestPort)$mcx->metadataRequestPort
+
+set $mrs=(gem5::MCXEncryptionEngine::MCXMetaResponsePort)$mcx->metadataResponsePort
+
+set $memrq=(gem5::MCXEncryptionEngine::MCXMemoryRequestPort)$mcx->memoryRequestPort
+
+set $cpurs=(gem5::MCXEncryptionEngine::MCXCpuResponsePort)$mcx->cpuResponsePort
+
+set $l3=(gem5::Cache*)gem5::SimObject::find("system.l3")
+
+set $mc=(gem5::memory::MemCtrl*)gem5::SimObject::find("system.mem_ctrl")
+
+set $meta=(gem5::SimpleCache*)gem5::SimObject::find("system.metadata_cache")
+
+set $membus=(gem5::CoherentXBar*)gem5::SimObject::find("system.membus")
+
+ 
+
+b src/mem/mee/mcx_l3ports.cc:89
