@@ -1,0 +1,54 @@
+newgraph
+
+x_translate 4
+
+xaxis size 2 min .8 max 3.3
+  hash 1 mhash 0 shash 0
+  no_auto_hash_labels
+  hash_labels fontsize 12 font Times-Italix hjl rotate -60
+  hash_label at 1 : Sim Time (milliseconds)
+
+  hash_label at 2 : Host Time (seconds)
+
+  hash_label at 3 : Host memory (MB)
+
+yaxis size 2 min 0 max 1
+  grid_lines grid_gray .7
+
+newline pts 0.8 0 3.2 0
+
+newcurve marktype xbar cfill 0 1 .6
+
+marksize .1 .08
+
+label : 
+pts
+  1 251.549 2 3.4325
+
+newgraph
+
+x_translate 4
+
+xaxis size 2 min .8 max 3.3
+  hash 1 mhash 0 shash 0
+  no_auto_hash_labels
+  hash_labels fontsize 12 font Times-Italix hjl rotate -60
+  hash_label at 1 : Sim Time (milliseconds)
+
+  hash_label at 2 : Host Time (seconds)
+
+  hash_label at 3 : Host memory (MB)
+
+yaxis size 2 min 0 max 1
+  grid_lines grid_gray .7
+
+newline pts 0.8 0 3.2 0
+
+newcurve marktype xbar cfill 0 1 .6
+
+marksize .1 .08
+
+label : resources/simple_base_stats.txt
+pts
+  1 67.909 2 1.17705
+
