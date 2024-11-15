@@ -11,8 +11,9 @@ Clone the repository at [gem5.org](https://www.gem5.org/getting_started/) and fo
 
 You can follow the gem5 [introductory tutorial](https://www.gem5.org/documentation/learning_gem5/introduction/), but only need to worry about the "Getting Started" & "Modifying/Extending" sections.
 
-
 Build gem5 for your specific architecture: (X86, RISCV, ARM, NULL, MIPS, SPARC, POWER, and ALL)
+
+For implementing your own components, such as a board, cache hierarchy, or processor - check out the gem5 [documentation](https://www.gem5.org/documentation/gem5-stdlib/develop-own-components-tutorial) on developing your own component.
 
 ## Gem5 RISCV support
 
