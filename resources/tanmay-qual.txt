@@ -1,0 +1,34 @@
+Notes for Tanmay 
+
+ - 'contents' slide title sould be more specific
+ - slide numbers always
+ - bring water to take breaks from speaking
+ - be consistent & specific with your terminology, don't be afraid to be technical
+ - enlarge text when you can - make everything as readable as possible
+ - I like the way you fill whitespace with figures
+
+Search-based
+ - Dijkstra's is not "not aggressive enough", instead it is too aggressive (O(n^2)), A* improves the search by informing the optimal direction 
+ - What is the state-of-the-art & why is that not your route of exploration?
+
+Learning-based
+ - Similar as before, less of a list and more targeted to downsides / reasons this is not what you are investigating/presenting
+
+ - Your story is about sampling-based Motion planning, set up search & learning-based approaches to support your inevitable point with sampling-based
+
+Sampling-based
+ - more main points on slides instead of lists 
+ - if you are going to show code, point very specifically to a line(s) that you want to focus, but if you can make your point without code, you should
+ - change "point x" to a target list of components that your algorithm addresses
+
+FPGAs
+ - "kernels" slides should have larger, black text  
+ - immediate change in tone and confidence
+
+Noise Generation
+ - great introduction to why it is useful, but what it lacks / needs improvement (gave idea of what you are targeting in less than 5 seconds) 
+
+Results
+ - Keep color schemes consistent
+ - what are the percentage bars
+ - Better timing with the FPGA because of customization opposed to GPUs
