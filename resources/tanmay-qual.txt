@@ -32,3 +32,40 @@ Results
  - Keep color schemes consistent
  - what are the percentage bars
  - Better timing with the FPGA because of customization opposed to GPUs
+
+-------------
+
+2nd Attempt
+ - Right off the bat more comfortable and confident with content
+ - I like the introduction before diving into different approaches 
+ - It is clear that when you lose train of thought, or are perhaps not as confident in a specific area, you start saying "um" exponentially more - instead, just take a brief pause and allow yourself to catch up. This is perfectly fine and bridges ideas much better than filling the silence.
+
+Search-based: 5 mins
+ - Way better to bring everything in one by one as you explain, makes way more sense
+ 
+Learning-based: 2 mins
+ - Is there a point you want to get across with your figures? If not, is there a figure that you could use to better express a point?
+ - I like highlighting the important works
+ - Good job with reason you are not using this method
+
+Sampling-based: 4 mins
+ - No notes 
+
+Acceleration:
+Perception: 3 mins
+Localization: 4 mins 
+ - I really like the "takeaways" slide(s), it is always beneficial to take a step back, add context and reinforce the main points you have talked about
+
+MPPI: 5 mins 
+ - What are you trying to demonstrate with the pseudocode? I think this could be done more effectively
+
+Kernels: 4 mins 
+ - Consolidate some figures so all text fits inside boxes nicely
+
+Noise Generation: 2 mins 
+Memory Access: 2 mins
+Array Partition: 1.5 mins
+Results: 1.5 mins
+ - If at all possible, swap CPU & GPU in the legend so the two legends are consistent
+Optimizations: 2 mins
+Future Directions: 4 mins
