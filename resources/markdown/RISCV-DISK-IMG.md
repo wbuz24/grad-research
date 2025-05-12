@@ -1,6 +1,8 @@
 # Build a disk image for RISC-V ubuntu
 This is for a full-system disk image
 
+A list of dependencies can be found below
+
 ## setup env
 ```
 mkdir mnt
@@ -45,3 +47,8 @@ apt update
 sudo apt install git
 ```
 Now, clone any repo you like
+
+## Dependencies
+
+ - A statically compiled version of RISC-V qemu
+ - [RISC-V Toolchain](https://github.com/riscv-collab/riscv-gnu-toolchain)
