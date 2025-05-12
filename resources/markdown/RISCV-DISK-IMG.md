@@ -50,5 +50,5 @@ Now, clone any repo you like
 
 ## Dependencies
 
- - A statically compiled version of RISC-V qemu
+ - A statically compiled version of [RISC-V qemu](https://risc-v-getting-started-guide.readthedocs.io/en/latest/linux-qemu.html)
  - [RISC-V Toolchain](https://github.com/riscv-collab/riscv-gnu-toolchain)
