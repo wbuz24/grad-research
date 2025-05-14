@@ -4,7 +4,7 @@
 ## Disk-Image
 When running FS-mode, gem5 does not automatically point to the correct filesystem to search for the mounted disk image ([Seen here](https://stackoverflow.com/questions/63277677/gem5-full-system-linux-boot-fails-with-kernel-panic-not-syncing-vfs-unable), in both RISC-V & X86).
 
-Within ```src/python/gem5/components/boards/riscv_board.py```, change the ```get_disk_device()``` function to point to ```/dev/vda1``` instead of "/dev/vda":
+Within ```src/python/gem5/components/boards/riscv_board.py``` (or equivalent ISA's board), change the ```get_disk_device()``` function to point to ```/dev/vda1``` instead of "/dev/vda":
 ```
 @overrides(KernelDiskWorkload)
 def get_disk_device(self):
