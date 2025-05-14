@@ -1,9 +1,9 @@
 # Issues encountered with gem5
-Most of these issues/fixes are geared towards the RISC-V compiled gem5 version 24.0.0.1+, though many of the fixes still apply to other ISA's and can simply swap ```riscv``` with the desired ISA.
-
 Note: 
 
-The same cannot be said about different gem5 versions, as gem5 is vulnerable to major changes at any point. Most of this work utilizes the ```board``` class as opposed to the deprecated ```system``` class.
+ - Most of these issues/fixes are geared towards the RISC-V compiled gem5 version 24.0.0.1+, though many of these solutions still apply to other ISA's and can simply swap ```riscv``` with the desired ISA.
+
+ - The same cannot be said about different gem5 versions, as gem5 is vulnerable to major changes at any point. Most of this work utilizes the ```board``` class as opposed to the deprecated ```system``` class.
 
 ## Full-system
 ## Disk-Image
