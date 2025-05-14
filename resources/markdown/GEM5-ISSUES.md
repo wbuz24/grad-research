@@ -13,5 +13,5 @@ Within ```src/python/gem5/components/boards/riscv_board.py``` (or equivalent ISA
 ```
 @overrides(KernelDiskWorkload)
 def get_disk_device(self):
-    return "/dev/vda"
+    return "/dev/vda1"
 ```
