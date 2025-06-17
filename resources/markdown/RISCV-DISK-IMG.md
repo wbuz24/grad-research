@@ -1,5 +1,5 @@
 # Build a disk image for RISC-V ubuntu
-This is for a full-system disk image
+This is for a full-system disk image for [gem5](https://www.gem5.org/) simulations.
 
 A list of dependencies can be found below
 
@@ -56,7 +56,7 @@ Now, clone any repo you like
 ## For gem5
 Note: When running your own disk image in gem5, you must first compile the [m5 utility](https://github.com/gem5/gem5/tree/stable/util/m5).
 
-For riscv, you must also cross compile
+For riscv, you must also cross compile, this is done from the ~/gem5/util/m5 directory in a similar manner to how you build the gem5 binary.
 ```
 scons riscv.CROSS_COMPILE=/home/wbuziak/../../opt/riscv/bin/riscv64-unknown-linux-gnu- build/riscv/out/m5
 ```
