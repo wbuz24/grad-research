@@ -3,7 +3,10 @@ This is for a full-system disk image for [gem5](https://www.gem5.org/) simulatio
 
 A list of dependencies can be found below
 
-## setup env
+## Setup env
+
+Note: If you are starting from scratch, you can largely follow this in-order.
+
 ```
 mkdir mnt
 ```
