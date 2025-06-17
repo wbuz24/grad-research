@@ -32,9 +32,14 @@ This is important for a few files that the image will need to borrow from a real
 sudo cp /etc/resolv.conf mnt/etc/ --remove-destination 
 sudo /bin/mount -o bind /dev/null mnt/dev/null
 ```
-## install files from within disk image
+
+## chroot into the image to open a shell within
 ```
 sudo chroot mnt qemu-riscv64-static /bin/bash
+```
+
+## change permissions 
+```
 chmod 777 mnt
 chown -R man: /var/cache/man/
 ```
@@ -47,6 +52,16 @@ apt update
 sudo apt install git
 ```
 Now, clone any repo you like
+
+## For gem5
+Note: When running your own disk image in gem5, you must first compile the [m5 utility](https://github.com/gem5/gem5/tree/stable/util/m5).
+
+For riscv, you must also cross compile
+```
+scons riscv.CROSS_COMPILE=/home/wbuziak/../../opt/riscv/bin/riscv64-unknown-linux-gnu- build/riscv/out/m5
+```
+
+You will then want to copy this binary onto your disk image sbin/ folder, as per the [disk-image](https://www.gem5.org/documentation/general_docs/fullsystem/disks) documentation.
 
 ## Dependencies
 
