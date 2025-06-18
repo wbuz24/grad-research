@@ -29,16 +29,23 @@ You should unmount after you are done
 sudo python3 util/gem5img.py umount mnt
 ```
 
-## copy appropriate system files onto image
+## Copy appropriate system files onto image
 This is important for a few files that the image will need to borrow from a real system
 ```
 sudo cp /etc/resolv.conf mnt/etc/ --remove-destination 
 sudo /bin/mount -o bind /dev/null mnt/dev/null
 ```
 
-## chroot into the image to open a shell within
+## Chroot into the image to open a shell within
+Try:
 ```
 sudo chroot mnt qemu-riscv64-static /bin/bash
+```
+
+If that does not work, you can chroot using:
+
+```
+sudo chroot mnt
 ```
 
 ## change permissions 
@@ -49,11 +56,13 @@ chown -R man: /var/cache/man/
 
 ```exit```  optional for full shell
 
-## clone repository / transfer files
+## Update and clone repositories 
+
 ```
 apt update
-sudo apt install git
+apt install git
 ```
+
 Now, clone any repo you like
 
 ## For gem5
