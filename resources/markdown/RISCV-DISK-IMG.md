@@ -1,7 +1,10 @@
 # Build a disk image for RISC-V ubuntu
 This is for a full-system disk image for [gem5](https://www.gem5.org/) simulations.
 
-A list of dependencies can be found below
+## Dependencies
+
+ - A statically compiled version of [RISC-V qemu](https://risc-v-getting-started-guide.readthedocs.io/en/latest/linux-qemu.html)
+ - [RISC-V Toolchain](https://github.com/riscv-collab/riscv-gnu-toolchain)
 
 ## Setup env
 
@@ -105,7 +108,3 @@ m5 exit
 
 Note: if you experience issues, check that sbin/gem5_init.sh is fully executable.
 
-## Dependencies
-
- - A statically compiled version of [RISC-V qemu](https://risc-v-getting-started-guide.readthedocs.io/en/latest/linux-qemu.html)
- - [RISC-V Toolchain](https://github.com/riscv-collab/riscv-gnu-toolchain)
