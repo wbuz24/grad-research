@@ -66,14 +66,40 @@ apt install git
 Now, clone any repo you like
 
 ## For gem5
-Note: When running your own disk image in gem5, you must first compile the [m5 utility](https://github.com/gem5/gem5/tree/stable/util/m5).
-
-For riscv, you must also cross compile, this is done from the ~/gem5/util/m5 directory in a similar manner to how you build the gem5 binary.
+For riscv, to cross compile the m5 binary, this can be done from the ~/gem5/util/m5 directory in a similar manner to how you build the gem5 binary.
 ```
 scons riscv.CROSS_COMPILE=/home/wbuziak/../../opt/riscv/bin/riscv64-unknown-linux-gnu- build/riscv/out/m5
 ```
 
 You will then want to copy this binary onto your disk image sbin/ folder, as per the [disk-image](https://www.gem5.org/documentation/general_docs/fullsystem/disks) documentation.
+
+You may also want to compile [the util/term/m5term binary](https://www.gem5.org/documentation/general_docs/fullsystem/m5term) that allows you to connect to a FS serial terminal with the following command:
+
+```
+./util/term/m5term localhost 3456
+```
+
+Finally, ensure that you have a proper init script that loads your readfile contents that contain the shell commands for your benchmark. It will look something like sbin/gem5_init.sh:
+
+```
+#!/bin/sh
+m5 readfile > script.sh
+if [ -s script.sh ]; then
+    # if the file is not empty then execute it
+    chmod +x script.sh
+    ./script.sh
+    m5 exit
+# otherwise, drop to terminal/exit simulation
+else
+    # Directly log in as the gem5 user
+    printf "Dropping to shell as gem5 user...\n"
+    exec su - gem5
+fi
+
+m5 exit
+```
+
+Note: if you experience issues, check that sbin/gem5_init.sh is fully executable.
 
 ## Dependencies
 
