@@ -73,11 +73,15 @@ scons riscv.CROSS_COMPILE=/home/wbuziak/../../opt/riscv/bin/riscv64-unknown-linu
 
 You will then want to copy this binary onto your disk image sbin/ folder, as per the [disk-image](https://www.gem5.org/documentation/general_docs/fullsystem/disks) documentation.
 
+-----
+
 You may also want to compile [the util/term/m5term binary](https://www.gem5.org/documentation/general_docs/fullsystem/m5term) that allows you to connect to a FS serial terminal with the following command:
 
 ```
 ./util/term/m5term localhost 3456
 ```
+
+-----
 
 Finally, ensure that you have a proper init script that loads your readfile contents that contain the shell commands for your benchmark. It will look something like sbin/gem5_init.sh:
 
