@@ -68,6 +68,12 @@ apt install git
 
 Now, clone any repo you like
 
+Connect with a terminal:
+
+```
+./util/term/m5term localhost 3456
+```
+
 ## For gem5
 For riscv, to cross compile the m5 binary, this can be done from the ~/gem5/util/m5 directory in a similar manner to how you build the gem5 binary.
 ```
