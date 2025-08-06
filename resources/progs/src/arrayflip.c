@@ -5,7 +5,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void main(int argc, char** argv) {
+int main(int argc, char** argv) {
   int size, iter, buf, i, count, *arr;
 
   if (argc != 2) { printf("Format:\n./arrtest <SIZE>\n"); exit(1); }
@@ -31,4 +31,6 @@ void main(int argc, char** argv) {
 
   free(arr);
   arr = NULL;
+
+  return 0;
 }
