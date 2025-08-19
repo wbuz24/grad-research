@@ -23,7 +23,7 @@ gzip -d riscv-ubuntu-22.04.gz
 
 ## Mount the image, if error, keep retrying
 ```
-sudo python3 util/gem5img.py mount resources/binaries/riscv-ubuntu-22.04-img mnt
+sudo python3 util/gem5img.py mount resources/binaries/riscv-ubuntu-22.04 mnt
 ```
 
 ## If you need to unmount
