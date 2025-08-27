@@ -11,5 +11,8 @@ TODO:
 ## Memory Encryption Controller
 An extended memory controller that sits behind the LLC (on-chip) 
 
-Currently, the gem5 implementation has a Memory Encryption Engine (but no MC) - this will be corrected
-to be a Memory Controller (MC) that house a MEE.
+Currently, the gem5 implementation has a Memory Encryption Engine 
+(but no MC) - this will be corrected to be a Memory Controller (MC) 
+that house a MEE.
+
+## Metadata Cache
