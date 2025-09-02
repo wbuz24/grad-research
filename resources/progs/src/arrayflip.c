@@ -8,7 +8,7 @@
 #include <gem5/m5ops.h>
 
 int main(int argc, char** argv) {
-  unsigned long int size, iters, buf, i, count;
+  unsigned long int size, iters, buf, i;
   int *arr;
 
   if (argc != 3) { printf("Format:\n./arrtest <SIZE> <ITERATIONS>\n"); exit(1); }
@@ -20,23 +20,17 @@ int main(int argc, char** argv) {
   arr = (int *) malloc(sizeof(int) * size);
   memset(arr, 0, size);
 
-  printf("Checkpoint: Switching Processors\n");
-
   #ifdef GEM5
     // gem5 exit for checkpoint
     m5_exit(0);
   #endif // GEM5
 
-  count = 0;
   for (i = 0; i < iters; i++) {
-    buf = (i * rand()) % (size - 1); // generate a random index
-    if (arr[buf]) arr[buf] = 0; // flip the bit at the index
-    else arr[buf] = 1;
-
-    count++; // count iterations
+    buf = rand() % size; // generate a random index
+    arr[buf]++;
   }
 
-  printf("%ld array accesses\n", count);
+  printf("%ld array accesses\n", iters);
 
   #ifdef GEM5
     m5_exit(0);
