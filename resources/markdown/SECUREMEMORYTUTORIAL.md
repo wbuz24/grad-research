@@ -1,3 +1,8 @@
+# Simple Secure Memory Tutorial 
+This walkthrough utilizes the gem5 simulator to introduce the architecture behind secure memory methods. 
+
+Written by Samuel Thomas
+
 # Setup
 
 ```

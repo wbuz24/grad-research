@@ -4,7 +4,7 @@ Gem5 is a state-of-the-art architecture simulator. It is used by researchers and
 
 ## Usage
 
-Running gem5 is intended to be done in bash on a Linux machine. You may find workarounds to install gem5 on non-Linux machines, but the TAs cannot help debug platform specific errors. With that said, gem5 is runnable on the department machines and on CCV[^1].
+Running gem5 is intended to be done in bash on a Linux machine. You may find workarounds to install gem5 on non-Linux machines, but, much of gem5 documentation is outdated or scattered and is largely targeted towards Ubuntu machines. With that said, gem5 is runnable on other machines and operating systems.
 
 To run gem5, you will need to specify at least the binary (found at `build/<ISA>/gem5.<binary type>`) and a runtime configuration (a Python file typically found in the *configs* directory). In this class, most assignments will require you to use a RISC-V emulated processor, and it will be advantageous to have the `gem5.debug` binary (compiles each source file with debug flags). To compile this version of gem5, call:
 `scons build/RISCV/gem5.debug -j 4`
@@ -35,7 +35,7 @@ Exiting @ tick <tick> because exiting with last active thread context
 
 Much of the output from a run is benign legacy messages, and for the most part can be ignored. The output from the application begins after "Starting simulation..." but may be mixed in with other warnings from the backend. For the most part, these are benign (but may be useful in the event of incorrect behavior).
 
-[^1]: A minor note, we are using gem5 version 23.1.0.0 for this class. If you pull from the central gem5 repository, you may get a different version of the simulator where the syntax is distinctly different. To ensure everything is consistent, please use the gem5 repository associated with the course page and/or clone version 23.1.0.0.
+[^1]: A minor note, we are using gem5 version 24.0.0.1 for this class. If you pull from the central gem5 repository, you may get a different version of the simulator where the syntax is distinctly different. To ensure everything is consistent, please use the gem5 repository associated with the course page and/or clone version 24.0.0.1.
 
 ## Python Front-End
 
