@@ -28,6 +28,7 @@ int main(int argc, char** argv) {
 
   for (i = 0; i < iters; i++) {
     buf = rand() % size; // generate a random index
+    printf("Access at index: %ld\n", buf);
     arr[buf]++;
   }
 
