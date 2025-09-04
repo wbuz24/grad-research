@@ -20,6 +20,9 @@ def get_disk_device(self):
  
 If you fail to see benchmark results / expected outputs on the terminal when running FS, it is possible that the [init script](https://www.gem5.org/documentation/gem5-stdlib/x86-full-system-tutorial) was never called. First, ensure that the script has executable permissions.
 
+### Memory Encryption Engine
+If you are struggling with getting expected output regarding the Memory Encryption Engine, but the simulation is completing without error - it is possible that you are not using a TIMING cpu type. If you are running ATOMIC, you will not perform any secure memory.
+
 ## Unsolved Issues
 
 ### Full-System
