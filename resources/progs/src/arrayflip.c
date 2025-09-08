@@ -20,11 +20,9 @@ int main(int argc, char** argv) {
   memset(arr, 0, size);
 
   #ifdef GEM5
-    // gem5 exit for checkpoint
+    // gem5 exit for switching cpus 
     m5.switchCpus();
   #endif // GEM5
-
-  printf("CPUs switched?\n");
 
   for (i = 0; i < iters; i++) {
     buf = rand() % size; // generate a random index
