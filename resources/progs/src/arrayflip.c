@@ -20,8 +20,7 @@ int main(int argc, char** argv) {
   memset(arr, 0, size);
 
   #ifdef GEM5
-    // gem5 exit for switching cpus 
-    m5.switchCpus();
+    m5_exit(0);
   #endif // GEM5
 
   for (i = 0; i < iters; i++) {
@@ -31,10 +30,5 @@ int main(int argc, char** argv) {
   }
 
   printf("%ld array accesses on an array with %ld bytes\n", iters, size);
-
-  #ifdef GEM5
-    m5_exit(0);
-  #endif // GEM5
-
   return 0;
 }
