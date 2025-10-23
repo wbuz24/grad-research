@@ -11,10 +11,10 @@ int main(int argc, char** argv) {
   unsigned long int size, iters, buf, i;
   int *arr;
 
-  if (argc != 3) { printf("Format:\n./arrtest <SIZE> <ITERATIONS>\n"); exit(1); }
+  if (argc != 3) { printf("Format:\n./arrtest <ITERATIONS> <SIZE>\n"); exit(1); }
   
-  if (sscanf(argv[1], "%ld", &size) != 1) { printf("Invalid size, must be an integer\n"); exit(1); }
-  if (sscanf(argv[2], "%ld", &iters) != 1) { printf("Invalid number of iterations, must be an integer\n"); exit(1); }
+  if (sscanf(argv[1], "%ld", &iters) != 1) { printf("Invalid size, must be an integer\n"); exit(1); }
+  if (sscanf(argv[2], "%ld", &size) != 1) { printf("Invalid number of iterations, must be an integer\n"); exit(1); }
 
   arr = (int *) malloc(sizeof(int) * size);
   memset(arr, 0, size);
