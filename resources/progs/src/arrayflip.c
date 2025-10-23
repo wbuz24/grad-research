@@ -30,7 +30,7 @@ int main(int argc, char** argv) {
     arr[buf]++;
   }
 
-  printf("%ld array accesses\n", iters);
+  printf("%ld array accesses on an array with %ld bytes\n", iters, size);
 
   #ifdef GEM5
     m5_exit(0);
