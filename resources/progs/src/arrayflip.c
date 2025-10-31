@@ -17,6 +17,7 @@ int main(int argc, char** argv) {
   if (sscanf(argv[2], "%ld", &size) != 1) { printf("Invalid number of iterations, must be an integer\n"); exit(1); }
 
   arr = (int *) malloc(sizeof(int) * size);
+  if (arr = NULL) { printf("Error: malloc\n"); exit(1); }
   memset(arr, 0, size);
 
   #ifdef GEM5
