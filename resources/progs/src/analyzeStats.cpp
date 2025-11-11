@@ -24,9 +24,12 @@ int main(int argc, char** argv) {
       
       while (iss >> subs) {
         // numCycles
-        if (prev == "board.processor.start.core.numCycles") { printf("numCycles,     %s\n", subs.c_str()); }
+        if (prev == "board.processor.start.core.numCycles") { printf("%s,     %s\n", prev.c_str(), subs.c_str()); }
+        if (prev == "board.processor.switch.core.numCycles") { printf("%s,     %s\n", prev.c_str(), subs.c_str()); }
         // Instructions
-        if (prev == "board.processor.start.core.commitStats0.numInsts") { printf("Commmit Inst,  %s\n", subs.c_str());}
+        if (prev == "board.processor.start.core.commitStats0.numInsts") { printf("%s,  %s\n", prev.c_str(), subs.c_str());}
+        if (prev == "board.processor.switch.core.commitStats0.numInsts") { printf("%s,  %s\n", prev.c_str(), subs.c_str());}
+        if (prev == "board.processor.switch.core.commitStats0.ipc") { printf("%s,  %s\n", prev.c_str(), subs.c_str());}
 
         // Accesses
         //l1
