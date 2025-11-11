@@ -12,46 +12,57 @@ using namespace std;
 
 int main(int argc, char** argv) {
   ifstream fin;
-  ofstream ofile;
   string line, subs, prev;
-  string misses, instructions, accesses, numCycles;
 
-  if (argc != 2 || argc != 3) { printf("USAGE:\n\n./bin/analyze stat-file\n./bin/analyze stat-file output-name.csv\n\n"); exit(1); }
+  if (argc != 2 && argc != 3) { printf("USAGE:\n\n./bin/analyze stat-file\n./bin/analyze stat-file output-name.csv\n\n"); exit(1); }
   
   fin.open(argv[1]);
 	if (fin.is_open()) {
+    printf("\nStat,          Value\n--------------------\n\n");
     while (getline(fin, line)) {     
       istringstream iss(line);
       
       while (iss >> subs) {
-        if (prev == "board.processor.start.core.numCycles") { numCycles = subs; }
-        if (prev == "board.processor.start.core.commitStats0.numInsts") { instructions = subs; }
-        if (prev == "board.cache_hierarchy.l2cache.overallMisses::total") { misses = subs; }
-        if (prev == "board.cache_hierarchy.l2cache.overallAccesses::total") { accesses = subs;}
+        // numCycles
+        if (prev == "board.processor.start.core.numCycles") { printf("numCycles,     %s\n", subs.c_str()); }
+        // Instructions
+        if (prev == "board.processor.start.core.commitStats0.numInsts") { printf("Commmit Inst,  %s\n", subs.c_str());}
+
+        // Accesses
+        //l1
+        if (prev == "board.cache_hierarchy.l1i-cache-0.overallAccesses::total") { printf("%s,  %s\n", prev.c_str(), subs.c_str());}
+        if (prev == "board.cache_hierarchy.l1d-cache-0.overallAccesses::total") { printf("%s,  %s\n", prev.c_str(), subs.c_str());}
+        // l2
+        if (prev == "board.cache_hierarchy.l2cache.overallAccesses::total") {  printf("LLC Accesses,  %s\n", subs.c_str()); }
+        if (prev == "board.cache_hierarchy.l2-cache-0.overallAccesses::total") { printf("%s,  %s\n", prev.c_str(), subs.c_str());}
+        // metadata cache
+        if (prev == "board.memory.secure_memory.l3.overallAccesses::total") { printf("%s,  %s\n", prev.c_str(), subs.c_str());}
+
+        // Hits 
+        //l1
+        if (prev == "board.cache_hierarchy.l1d-cache-0.overallHits::total") { printf("%s,  %s\n", prev.c_str(), subs.c_str());}
+        if (prev == "board.cache_hierarchy.l1i-cache-0.overallHits::total") { printf("%s,  %s\n", prev.c_str(), subs.c_str());}
+        // l2
+        if (prev == "board.cache_hierarchy.l2-cache-0.overallHits::total") {  printf("%s,    %s\n", prev.c_str(), subs.c_str()); }
+        // metadata cache
+        if (prev == "board.memory.secure_memory.l3.overallHits::total") { printf("%s,  %s\n", prev.c_str(), subs.c_str());}
+
+
+        // Misses
+        //l1
+        if (prev == "board.cache_hierarchy.l1d-cache-0.overallMissRate::total") { printf("%s,  %s\n", prev.c_str(), subs.c_str());}
+        if (prev == "board.cache_hierarchy.l1i-cache-0.overallMissRate::total") { printf("%s,  %s\n", prev.c_str(), subs.c_str());}
+        // l2
+        if (prev == "board.cache_hierarchy.l2cache.overallMisses::total") {  printf("LLC Misses,    %s\n", subs.c_str()); }
+        if (prev == "board.cache_hierarchy.l2-cache-0.overallMissRate::total") { printf("%s,  %s\n", prev.c_str(), subs.c_str());}
+        // metadata cache
+        if (prev == "board.memory.secure_memory.l3.overallMissRate::total") { printf("%s,  %s\n", prev.c_str(), subs.c_str());}
+
         prev = subs;
       }
     }
   }
 
   fin.close();
-
-  printf("\nStat,          Value\n--------------------\n\n");
-  printf("numCycles,     %s\n", numCycles.c_str());
-  printf("Commmit Inst,  %s\n", instructions.c_str());
-  printf("LLC Accesses,  %s\n", accesses.c_str());
-  printf("LLC Misses,    %s\n", misses.c_str());
-
-  if (argc == 3) {
-    ofile.open(argv[2]);
-    printf("\n\n\nCreating results.csv\n\n");
-    
-    ofile << "Stat,        Value\n\n";
-    ofile << "numCycles,    " << numCycles << "\n";
-    ofile << "Commit Inst,  " << instructions << "\n";
-    ofile << "LLC Accesses, " << accesses << "\n";
-    ofile << "LLC Misses,   " << misses << "\n";
-
-    ofile.close();
-  }
   return 1;
 }
