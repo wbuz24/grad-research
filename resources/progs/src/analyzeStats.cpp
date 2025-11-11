@@ -44,6 +44,7 @@ int main(int argc, char** argv) {
         if (prev == "board.cache_hierarchy.l1i-cache-0.overallHits::total") { printf("%s,  %s\n", prev.c_str(), subs.c_str());}
         // l2
         if (prev == "board.cache_hierarchy.l2-cache-0.overallHits::total") {  printf("%s,    %s\n", prev.c_str(), subs.c_str()); }
+        if (prev == "board.cache_hierarchy.l2cache.overallHits::total") {  printf("%s,    %s\n", prev.c_str(), subs.c_str()); }
         // metadata cache
         if (prev == "board.memory.secure_memory.l3.overallHits::total") { printf("%s,  %s\n", prev.c_str(), subs.c_str());}
 
