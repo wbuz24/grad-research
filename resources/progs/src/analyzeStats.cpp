@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <cstdio>
 #include <cstdlib>
@@ -13,11 +12,11 @@ using namespace std;
 
 int main(int argc, char** argv) {
   ifstream fin;
+  ofstream ofile;
   string line, subs, prev;
-  string misses, instructions, accesses;
-  uint32_t miss, inst, acc, missRate, accperInst;
+  string misses, instructions, accesses, numCycles;
 
-  if (argc != 2) { printf("./analyzeStats stat-file\n"); exit(1); }
+  if (argc != 2 || argc != 3) { printf("USAGE:\n\n./bin/analyze stat-file\n./bin/analyze stat-file output-name.csv\n\n"); exit(1); }
   
   fin.open(argv[1]);
 	if (fin.is_open()) {
@@ -25,22 +24,34 @@ int main(int argc, char** argv) {
       istringstream iss(line);
       
       while (iss >> subs) {
-        if (prev == "simInsts") { instructions = subs; }
+        if (prev == "board.processor.start.core.numCycles") { numCycles = subs; }
+        if (prev == "board.processor.start.core.commitStats0.numInsts") { instructions = subs; }
         if (prev == "board.cache_hierarchy.l2cache.overallMisses::total") { misses = subs; }
-        if (prev == "board.cache_hierarchy.l2cache.overallAccesses::total") { accesses = subs; }
+        if (prev == "board.cache_hierarchy.l2cache.overallAccesses::total") { accesses = subs;}
         prev = subs;
       }
     }
   }
 
-  miss = atoi(misses.c_str());
-  inst = atoi(instructions.c_str());
-  acc = atoi(accesses.c_str());
+  fin.close();
 
-  missRate = miss / acc;
-  accperInst = acc / inst;
+  printf("\nStat,          Value\n--------------------\n\n");
+  printf("numCycles,     %s\n", numCycles.c_str());
+  printf("Commmit Inst,  %s\n", instructions.c_str());
+  printf("LLC Accesses,  %s\n", accesses.c_str());
+  printf("LLC Misses,    %s\n", misses.c_str());
 
-  printf("1000 * %u * %u = %u\n", missRate, accperInst, 1000 * missRate * accperInst);
+  if (argc == 3) {
+    ofile.open(argv[2]);
+    printf("\n\n\nCreating results.csv\n\n");
+    
+    ofile << "Stat,        Value\n\n";
+    ofile << "numCycles,    " << numCycles << "\n";
+    ofile << "Commit Inst,  " << instructions << "\n";
+    ofile << "LLC Accesses, " << accesses << "\n";
+    ofile << "LLC Misses,   " << misses << "\n";
 
+    ofile.close();
+  }
   return 1;
 }
