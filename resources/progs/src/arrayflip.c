@@ -21,8 +21,10 @@ int main(int argc, char** argv) {
   memset(arr, 0, size);
 
   #ifdef GEM5
-    m5_exit(0);
-  #endif // GEM5
+    m5op_addr = 0xFFFF0000;
+    map_m5_mem();
+    m5_work_begin_addr(0,0);
+  #endif
 
   for (i = 0; i < iters; i++) {
     buf = rand() % size; // generate a random index
@@ -31,5 +33,11 @@ int main(int argc, char** argv) {
   }
 
   printf("%ld array accesses on an array with %ld bytes\n", iters, size);
+
+  #ifdef GEM5
+    m5_work_end_addr(0,0);
+    unmap_m5_mem();
+  #endif
+
   return 0;
 }
