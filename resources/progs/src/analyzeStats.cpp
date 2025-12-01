@@ -26,20 +26,27 @@ int main(int argc, char** argv) {
         // numCycles
         if (prev == "board.processor.start.core.numCycles") { printf("%s,     %s\n", prev.c_str(), subs.c_str()); }
         if (prev == "board.processor.switch.core.numCycles") { printf("%s,     %s\n", prev.c_str(), subs.c_str()); }
+        if (prev == "board.processor.switch0.core.numCycles") { printf("%s,     %s\n", prev.c_str(), subs.c_str()); }
+        if (prev == "board.processor.switch1.core.numCycles") { printf("%s,     %s\n", prev.c_str(), subs.c_str()); }
+        if (prev == "board.processor.switch2.core.numCycles") { printf("%s,     %s\n", prev.c_str(), subs.c_str()); }
+        if (prev == "board.processor.switch3.core.numCycles") { printf("%s,     %s\n", prev.c_str(), subs.c_str()); }
+
         // Instructions
         if (prev == "board.processor.start.core.commitStats0.numInsts") { printf("%s,  %s\n", prev.c_str(), subs.c_str());}
         if (prev == "board.processor.switch.core.commitStats0.numInsts") { printf("%s,  %s\n", prev.c_str(), subs.c_str());}
         if (prev == "board.processor.switch.core.commitStats0.ipc") { printf("%s,  %s\n", prev.c_str(), subs.c_str());}
+        if (prev == "board.processor.switch0.core.ipc") { printf("%s,  %s\n", prev.c_str(), subs.c_str());}
 
         // Accesses
         //l1
         if (prev == "board.cache_hierarchy.l1i-cache-0.overallAccesses::total") { printf("%s,  %s\n", prev.c_str(), subs.c_str());}
         if (prev == "board.cache_hierarchy.l1d-cache-0.overallAccesses::total") { printf("%s,  %s\n", prev.c_str(), subs.c_str());}
         // l2
-        if (prev == "board.cache_hierarchy.l2cache.overallAccesses::total") {  printf("LLC Accesses,  %s\n", subs.c_str()); }
+        if (prev == "board.cache_hierarchy.l2cache.overallAccesses::total") {  printf("%s,  %s\n", prev.c_str(), subs.c_str()); }
         if (prev == "board.cache_hierarchy.l2-cache-0.overallAccesses::total") { printf("%s,  %s\n", prev.c_str(), subs.c_str());}
         // metadata cache
         if (prev == "board.memory.secure_memory.l3.overallAccesses::total") { printf("%s,  %s\n", prev.c_str(), subs.c_str());}
+        if (prev == "board.memory.secure_memory.metadata_requests") { printf("%s,  %s\n", prev.c_str(), subs.c_str());}
 
         // Hits 
         //l1
@@ -57,10 +64,11 @@ int main(int argc, char** argv) {
         if (prev == "board.cache_hierarchy.l1d-cache-0.overallMissRate::total") { printf("%s,  %s\n", prev.c_str(), subs.c_str());}
         if (prev == "board.cache_hierarchy.l1i-cache-0.overallMissRate::total") { printf("%s,  %s\n", prev.c_str(), subs.c_str());}
         // l2
-        if (prev == "board.cache_hierarchy.l2cache.overallMisses::total") {  printf("LLC Misses,    %s\n", subs.c_str()); }
+        if (prev == "board.cache_hierarchy.l2cache.overallMisses::total") {  printf("%s,    %s\n", prev.c_str(), subs.c_str()); }
         if (prev == "board.cache_hierarchy.l2-cache-0.overallMissRate::total") { printf("%s,  %s\n", prev.c_str(), subs.c_str());}
         // metadata cache
         if (prev == "board.memory.secure_memory.l3.overallMissRate::total") { printf("%s,  %s\n", prev.c_str(), subs.c_str());}
+        if (prev == "board.memory.secure_memory.metadata_misses") { printf("%s,  %s\n", prev.c_str(), subs.c_str());}
 
         prev = subs;
       }
