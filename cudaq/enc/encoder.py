@@ -1,3 +1,6 @@
+# This is the CUDA-Q documentation tutorial on 
+# Unitary compilation for Diffusion Models (Discrete)
+
 import cudaq
 import torch
 import numpy as np

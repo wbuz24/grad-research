@@ -4,13 +4,7 @@ import numpy as np
 import os
 import re
 
-GATE_ENCODING = {
-    "h": 1,
-    "cx": 2,
-    "mz": 3,
-}
-
-def build_circuit_builder(qubit_count: int):
+def GHZ(qubit_count: int):
     # If no arguments are passed, it returns a single object (no unpacking)
     kernel = cudaq.make_kernel()
     q = kernel.qalloc(qubit_count)
@@ -43,16 +37,15 @@ def parse_cudaq_kernel(kernel):
             gate_match = re.search(r"quake\.(\w+)", line)
             if not gate_match:
                 continue
+
             gate_name = gate_match.group(1)
 
             # Extract qubit indices (e.g., '0' from '%0')
             # Note: This assumes qubits are named %0, %1, etc. in order
             qubit_indices = [int(q) for q in re.findall(r"%(\d+)", line)]
 
-            gate_id = GATE_ENCODING.get(gate_name, 0)
-
             for qi in qubit_indices:
-                triples.append([timestep, qi, gate_id])
+                triples.append([timestep, qi, gate_name])
 
             timestep += 1
 
@@ -60,7 +53,7 @@ def parse_cudaq_kernel(kernel):
 
 if __name__ == "__main__":
     qubit_count = 4
-    kernel = build_circuit_builder(qubit_count)
+    kernel = GHZ(qubit_count)
 
     # Check the raw string format if the parser fails
     # print("DEBUG - Raw Quake IR:\n", str(kernel))
