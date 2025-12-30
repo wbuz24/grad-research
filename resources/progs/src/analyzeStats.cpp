@@ -47,6 +47,7 @@ int main(int argc, char** argv) {
         // metadata cache
         if (prev == "board.memory.secure_memory.l3.overallAccesses::total") { printf("%s,  %s\n", prev.c_str(), subs.c_str());}
         if (prev == "board.memory.secure_memory.metadata_requests") { printf("%s,  %s\n", prev.c_str(), subs.c_str());}
+        if (prev == "board.memory.metadata_cache.overallAccesses::total") { printf("%s,  %s\n", prev.c_str(), subs.c_str());}
 
         // Hits 
         //l1
@@ -57,6 +58,7 @@ int main(int argc, char** argv) {
         if (prev == "board.cache_hierarchy.l2cache.overallHits::total") {  printf("%s,    %s\n", prev.c_str(), subs.c_str()); }
         // metadata cache
         if (prev == "board.memory.secure_memory.l3.overallHits::total") { printf("%s,  %s\n", prev.c_str(), subs.c_str());}
+        if (prev == "board.memory.metadata_cache.overallHits::total") { printf("%s,  %s\n", prev.c_str(), subs.c_str());}
 
 
         // Misses
@@ -69,6 +71,7 @@ int main(int argc, char** argv) {
         // metadata cache
         if (prev == "board.memory.secure_memory.l3.overallMissRate::total") { printf("%s,  %s\n", prev.c_str(), subs.c_str());}
         if (prev == "board.memory.secure_memory.metadata_misses") { printf("%s,  %s\n", prev.c_str(), subs.c_str());}
+        if (prev == "board.memory.metadata_cache.overallMisses::total") { printf("%s,  %s\n", prev.c_str(), subs.c_str());}
 
         prev = subs;
       }
