@@ -164,3 +164,16 @@ X86:
 
 RISC-V:
 
+  - Bootloader:
+  ```
+  wget https://dist.gem5.org/dist/develop/kernels/riscv/static/riscv-bootloader-opensbi-1.3.1-20231129
+  ```
+  - Kernel:
+  ```
+  wget https://dist.gem5.org/dist/develop/kernels/riscv/static/linux-6.5.5
+  ```
+  - Disk Image:
+  ```
+  wget https://dist.gem5.org/dist/develop/images/riscv/riscv-ubuntu-22.04.gz
+  ```
+
