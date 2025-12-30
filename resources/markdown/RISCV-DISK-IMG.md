@@ -35,6 +35,12 @@ mount: /PATH-TO-MOUNT/mnt: wrong fs type, bad option, bad superblock on /dev/loo
 
 The problem is most likely an issue with the mounting partition type, you can use the following to find the correct partition manually.
 
+Attach with partition scanning:
+```
+sudo losetup -fP fs_files/x86-ubuntu-22-04
+```
+Find the correct partition with ```lsblk```
+
 Check for an ```EXT4``` partition type:
 
 ```
