@@ -41,7 +41,7 @@ sudo losetup -fP fs_files/x86-ubuntu-22-04
 ```
 Find the correct partition with ```lsblk```
 
-Check for an ```EXT4``` partition type:
+We are looking for an ```EXT4``` partition type:
 
 ```
 sudo dmesg | tail -n 20
