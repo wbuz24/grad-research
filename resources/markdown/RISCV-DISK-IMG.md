@@ -26,6 +26,33 @@ gzip -d riscv-ubuntu-22.04.gz
 sudo python3 util/gem5img.py mount resources/binaries/riscv-ubuntu-22.04 mnt
 ```
 
+If you experience the following error message:
+
+```
+mount: /PATH-TO-MOUNT/mnt: wrong fs type, bad option, bad superblock on /dev/loop0p1, missing codepage or helper program, or other error.
+  dmesg(1) may have more information after failed mount system call.
+```
+
+The problem is most likely an issue with the mounting partition type, you can use the following to find the correct partition manually.
+
+Check for an ```EXT4``` partition type:
+
+```
+sudo dmesg | tail -n 20
+```
+
+Check for the ```TYPE="ext4"``` partition (likely /deb/loop0p2):
+
+```
+sudo blkid /dev/loop0p2
+```
+
+Once you have found the device partition with the appropriate type, mount it manually:
+
+```
+sudo mount /dev/loop0p2 mnt
+```
+
 ## If you need to unmount
 You should unmount after you are done
 ```

@@ -4,4 +4,4 @@ A collection of documentation and useful scripts that were of assistance through
 
 # Getting Started 
 
-The [markdown](https://github.com/wbuz24/grad-research/tree/main/resources/markdown) directory houses many introductions to gem5 targeting various interests. 
+The [markdown](https://github.com/wbuz24/grad-research/tree/main/resources/markdown) directory houses many introductions and documentation for errors and fixes. 
