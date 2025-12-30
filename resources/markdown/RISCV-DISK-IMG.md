@@ -141,3 +141,20 @@ m5 exit
 
 Note: if you experience issues, check that sbin/gem5_init.sh is fully executable.
 
+# Binaries
+
+In order to successfully simulate a full-system architecture, you must have compatible OS, bootloader and kernel binaries. Many can be found at the [gem5 resources]() repository.
+
+X86:
+
+ - Bootloader:
+ ```
+ wget https://gem5dist.blob.core.windows.net/dist/develop/kernels/x86/static/vmlinux-5.2.3
+ ```
+ - Disk Image:
+ ```
+ wget https://dist.gem5.org/dist/develop/images/x86/x86-ubuntu-22-04.gz
+ ```
+
+RISC-V:
+
