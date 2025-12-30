@@ -1,6 +1,8 @@
 # Build a disk image for RISC-V ubuntu
 This is for a full-system disk image for [gem5](https://www.gem5.org/) simulations.
 
+This documentation is adapted from the gem5 disk image [documentation](https://www.gem5.org/documentation/general_docs/fullsystem/disks).
+
 ## Dependencies
 
  - A statically compiled version of [RISC-V qemu](https://risc-v-getting-started-guide.readthedocs.io/en/latest/linux-qemu.html)
