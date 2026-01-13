@@ -4,6 +4,7 @@ import numpy as np
 import os
 import re
 
+# Simply create a GHZ circuit using cudaq
 def GHZ(qubit_count: int):
     # If no arguments are passed, it returns a single object (no unpacking)
     kernel = cudaq.make_kernel()
